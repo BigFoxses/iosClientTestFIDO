@@ -41,20 +41,17 @@ struct ContentView: View {
                     Button("Get") {
                         viewModel.get()
                     }
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
+                    .buttonStyle(BorderedButtonStyle())
 
                     Button("Retrieve") {
                         viewModel.retrieve()
                     }
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
+                    .buttonStyle(BorderedButtonStyle())
                     
                     Button("Clear") {
                         viewModel.clearInput()
                     }
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
+                    .buttonStyle(BorderedButtonStyle())
                 }
                 .padding(.bottom, 10)
 
