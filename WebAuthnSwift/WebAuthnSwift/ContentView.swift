@@ -74,3 +74,25 @@ struct ContentView: View {
         .navigationViewStyle(.stack) // Required for iOS 14 stack behavior
     }
 }
+
+struct BlueBorderedButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.blue, lineWidth: 1)
+            )
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ConfigurationView()
+            .environmentObject(WebAuthnViewModel())
+    }
+}
