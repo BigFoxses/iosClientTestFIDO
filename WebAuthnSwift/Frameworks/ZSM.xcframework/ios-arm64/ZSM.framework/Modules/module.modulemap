@@ -1,0 +1,6 @@
+framework module ZSM {
+  umbrella header "ZSM.h"
+  export *
+
+  module * { export * }
+}
