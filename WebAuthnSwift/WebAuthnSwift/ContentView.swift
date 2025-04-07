@@ -36,22 +36,26 @@ struct ContentView: View {
                     Button("Create") {
                         viewModel.create()
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
 
                     Button("Get") {
                         viewModel.get()
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
 
                     Button("Retrieve") {
                         viewModel.retrieve()
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
                     
                     Button("Clear") {
                         viewModel.clearInput()
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
                 }
                 .padding(.bottom, 10)
 
