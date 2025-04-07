@@ -36,8 +36,7 @@ struct ContentView: View {
                     Button("Create") {
                         viewModel.create()
                     }
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
+                    .buttonStyle(BlueBorderedButtonStyle())
 
                     Button("Get") {
                         viewModel.get()
