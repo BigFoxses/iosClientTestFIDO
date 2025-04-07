@@ -29,7 +29,7 @@ class WebAuthnViewModel: ObservableObject {
             "application_id": applicationId,
             "consumer_id": consumerId,
             "application_environment": applicationEnvironment
-//            "headers" :  [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
+  //          "headers" :  [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
             
         ]
         /*
@@ -62,6 +62,29 @@ class WebAuthnViewModel: ObservableObject {
     }
 
     func create() {
+        guard let data = inputText.data(using: .utf8) else {
+            print("invalid Json string")
+            return
+        }
+        
+        let object = try JSONSerialization.jsonObject(with: data)
+        let prettyPrintedData = try JSONSerialization.data(
+            withJSONObject: object,
+            options: [.prettyPrinted, .sortedKeys]
+        )
+        let prettyPrintedString = String(data: prettyPrintedData, encoding: .utf8)!
+        print(prettyPrintedString)
+        
+       // let jObject = try? JSONSerialization.jsonObject(with: js, options: [])
+     
+       // let formattedData = try? JSONSerialization.data(withJSONObject: jObject, options: [.prettyPrinted])
+        
+       // if let formattedString = String(data: formattedData, encoding: .utf8) {
+       //     print(formattedString)
+       // }
+        
+        
+                
         guard let zsm = zsm, let jsonData = inputText.data(using: .utf8),
               let options = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any] else {
             errorMessage = "Invalid JSON input"
