@@ -67,13 +67,18 @@ class WebAuthnViewModel: ObservableObject {
             return
         }
         
-        let object = try JSONSerialization.jsonObject(with: data)
-        let prettyPrintedData = try JSONSerialization.data(
-            withJSONObject: object,
-            options: [.prettyPrinted, .sortedKeys]
-        )
-        let prettyPrintedString = String(data: prettyPrintedData, encoding: .utf8)!
-        print(prettyPrintedString)
+        do {
+            let object = try JSONSerialization.jsonObject(with: data)
+            let prettyPrintedData = try JSONSerialization.data(
+                withJSONObject: object,
+                options: [.prettyPrinted, .sortedKeys]
+            )
+            if let prettyPrintedString = String(data: prettyPrintedData, encoding: .utf8) {
+                outputText = prettyPrintedString
+            }
+        } catch {
+            errorMessage = "JSON formatting error: \(error.localizedDescription)"
+        }
         
        // let jObject = try? JSONSerialization.jsonObject(with: js, options: [])
      
