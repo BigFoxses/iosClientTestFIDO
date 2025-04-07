@@ -13,7 +13,7 @@ class WebAuthnViewModel: ObservableObject {
     @Published var applicationId: String = UserDefaults.standard.string(forKey: "appId") ?? "6dcb42e7-5dfb-4263-b21f-34c014a55ecc"
     @Published var consumerId: String = "cititest1-ios"
     
-    let headers: [String:String] = [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
+//let headers: [String:String] = [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
 
     
     let applicationEnvironment : String = "NA"
@@ -28,8 +28,8 @@ class WebAuthnViewModel: ObservableObject {
             "host_url": hostUrl,
             "application_id": applicationId,
             "consumer_id": consumerId,
-            "application_environment": applicationEnvironment,
-            "headers" :  [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
+            "application_environment": applicationEnvironment
+//            "headers" :  [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
             
         ]
         /*
