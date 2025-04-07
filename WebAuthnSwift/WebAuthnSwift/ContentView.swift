@@ -37,6 +37,8 @@ struct ContentView: View {
                         viewModel.create()
                     }
                     .buttonStyle(BlueBorderedButtonStyle())
+                    .disabled(viewModel.inputText.trim().isEmpty || viewModel.zsm == nil)
+                    .opacity((viewModel.inputText.trim().isEmpty || viewModel.zsm == nil) ? 0.5 : 1.0)
 
                     Button("Get") {
                         viewModel.get()
