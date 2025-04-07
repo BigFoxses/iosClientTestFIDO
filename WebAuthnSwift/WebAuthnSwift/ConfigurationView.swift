@@ -24,8 +24,7 @@ struct ConfigurationView: View {
                     viewModel.saveConfig()
                     presentationMode.wrappedValue.dismiss() // Dismiss view after saving
                 }
-                .buttonStyle(.bordered)
-                .tint(.blue)
+                .buttonStyle(BlueBorderedButtonStyle())
                 .padding()
             }
         }

@@ -12,7 +12,7 @@ struct ContentView: View {
                     .bold()
 
                 NavigationLink("Configure WebAuthn Settings", destination: ConfigurationView())
-                    .buttonStyle(.bordered)
+                    .buttonStyle(BorderedButtonStyle())
 
                 Text("Input JSON")
                 TextEditor(text: $viewModel.inputText)
@@ -24,12 +24,12 @@ struct ContentView: View {
                     Button("Example Create") {
                         viewModel.loadExampleCreate()
                     }
-                    .buttonStyle(.bordered)
+                    .buttonStyle(BorderedButtonStyle())
 
                     Button("Example Get") {
                         viewModel.loadExampleGet()
                     }
-                    .buttonStyle(.bordered)
+                    .buttonStyle(BorderedButtonStyle())
                 }
 
                 HStack {
@@ -72,6 +72,19 @@ struct ContentView: View {
             .padding()
         }
         .navigationViewStyle(.stack) // Required for iOS 14 stack behavior
+    }
+}
+
+struct BorderedButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .foregroundColor(.blue)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(Color.blue, lineWidth: 1)
+            )
     }
 }
 
