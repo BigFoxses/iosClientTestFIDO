@@ -28,7 +28,8 @@ class WebAuthnViewModel: ObservableObject {
             "host_url": hostUrl,
             "application_id": applicationId,
             "consumer_id": consumerId,
-            "application_environment": applicationEnvironment
+            "application_environment": applicationEnvironment,
+            "perform_network_health_check" : "false"
   //          "headers" :  [ "client_id" : "E0F58A01-CF8B-4ADB-B6EA-A095275F8D90", "client_secret"  : "uy80l7g40j189q80b20wm94w3x53si4ehobpmw9h58526mkf4da"]
             
         ]
@@ -50,6 +51,7 @@ class WebAuthnViewModel: ObservableObject {
                     self.zsm = instance
                 } else if let error = error {
                     self.errorMessage = "Error initializing ZSM: \(error.localizedDescription)"
+                    print("Error initializing ZSM: \(error.localizedDescription)")
                 }
             }
         }
@@ -74,10 +76,10 @@ class WebAuthnViewModel: ObservableObject {
                 options: [.prettyPrinted, .sortedKeys]
             )
             if let prettyPrintedString = String(data: prettyPrintedData, encoding: .utf8) {
-                outputText = prettyPrintedString
+                print(prettyPrintedString)
             }
         } catch {
-            errorMessage = "JSON formatting error: \(error.localizedDescription)"
+            print("JSON formatting error: \(error.localizedDescription)")
         }
         
        // let jObject = try? JSONSerialization.jsonObject(with: js, options: [])
