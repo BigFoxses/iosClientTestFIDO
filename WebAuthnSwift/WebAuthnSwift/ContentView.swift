@@ -4,8 +4,9 @@ struct ContentView: View {
     @StateObject private var viewModel = WebAuthnViewModel()
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack(alignment: .leading, spacing: 16) {
+                // iOS 14 compatible navigation
                 Text("WebAuthn Demo")
                     .font(.title)
                     .bold()
@@ -67,5 +68,6 @@ struct ContentView: View {
             }
             .padding()
         }
+        .navigationViewStyle(.stack) // Required for iOS 14 stack behavior
     }
 }
