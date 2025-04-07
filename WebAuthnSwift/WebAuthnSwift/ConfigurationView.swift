@@ -24,7 +24,9 @@ struct ConfigurationView: View {
                     viewModel.saveConfig()
                     presentationMode.wrappedValue.dismiss() // Dismiss view after saving
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
+                .tint(.blue)
+                .padding()
             }
         }
         .navigationTitle("Configuration")
