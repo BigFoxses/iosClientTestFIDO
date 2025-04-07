@@ -55,10 +55,22 @@ struct ContentView: View {
                 }
                 .padding(.bottom, 10)
 
-                Text("Output JSON")
-                TextEditor(text: $viewModel.outputText)
-                    .frame(height: 200)
-                    .border(Color.gray, width: 1)
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text("Output JSON")
+                            .font(.headline)
+                            .padding(.bottom, 4)
+                        
+                        TextEditor(text: $viewModel.outputText)
+                            .frame(minHeight: 200, maxHeight: .infinity)
+                            .padding(8)
+                            .background(Color(.systemBackground))
+                            .border(Color.gray, width: 1)
+                            .cornerRadius(4)
+                    }
+                    .padding(.vertical, 8)
+                }
+                .frame(maxHeight: 300)
 
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
